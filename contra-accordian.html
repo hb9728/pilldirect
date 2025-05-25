@@ -182,18 +182,19 @@ document.querySelectorAll('.accordion-title').forEach(button => {
   });
 });
 
+</script>
+
+<script>
 function sendHeight() {
-  const height = document.body.scrollHeight;
-  parent.postMessage({ type: 'resize-iframe', height }, '*');
+  const height = document.documentElement.scrollHeight;
+  parent.postMessage({ type: 'resize-iframe', height: height }, '*');
 }
 
 // Send height on load
 window.addEventListener('load', sendHeight);
 
-// Send height on click (to catch accordion expand/collapse)
-document.addEventListener('click', () => {
-  // Allow time for layout to update before measuring height
-  setTimeout(sendHeight, 300);
+// Send height on accordion clicks
+document.addEventListener('click', function () {
+  setTimeout(sendHeight, 300); // Delay to wait for expand animation
 });
-
 </script>
