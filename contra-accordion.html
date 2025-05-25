@@ -7,7 +7,7 @@
 
 <style>
 .accordion-section {
-  font-family: 'Segoe UI', sans-serif;
+  font-family: 'Arial', sans-serif;
   font-size: 16px;
 }
 
@@ -26,7 +26,7 @@
   }
 
   .accordion-title {
-    font-size: 13px;
+    font-size: 12px;
   }
 
   .accordion-content {
@@ -39,7 +39,7 @@
 
 <style>
 .accordion-section {
-  font-family: 'Segoe UI', sans-serif;
+  font-family: 'Arial', sans-serif;
   max-width: 800px;
   margin: 0 auto;
   border-radius: 6px;
@@ -242,7 +242,7 @@ document.addEventListener('click', function () {
 function adjustFontSizeForMobile() {
   if (window.innerWidth <= 500) {
     document.querySelector('.accordion-section').style.fontSize = '12px';
-    document.querySelectorAll('.accordion-title').forEach(el => el.style.fontSize = '13px');
+    document.querySelectorAll('.accordion-title').forEach(el => el.style.fontSize = '12px');
     document.querySelectorAll('.accordion-content').forEach(el => el.style.fontSize = '12px');
   }
 }
