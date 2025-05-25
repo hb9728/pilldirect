@@ -181,4 +181,19 @@ document.querySelectorAll('.accordion-title').forEach(button => {
     item.classList.toggle('active');
   });
 });
+
+function sendHeight() {
+  const height = document.body.scrollHeight;
+  parent.postMessage({ type: 'resize-iframe', height }, '*');
+}
+
+// Send height on load
+window.addEventListener('load', sendHeight);
+
+// Send height on click (to catch accordion expand/collapse)
+document.addEventListener('click', () => {
+  // Allow time for layout to update before measuring height
+  setTimeout(sendHeight, 300);
+});
+
 </script>
