@@ -1,0 +1,184 @@
+<style>
+.accordion-section {
+  font-family: 'Segoe UI', sans-serif;
+  max-width: 800px;
+  margin: 0 auto;
+  border-radius: 6px;
+  overflow: hidden;
+}
+
+.accordion-item {
+  border-bottom: 1px solid #d0d0d0;
+}
+
+.accordion-title {
+  background-color: #005eb8; /* NHS blue */
+  color: white;
+  cursor: pointer;
+  padding: 16px 20px;
+  font-size: 16px;
+  font-weight: bold;
+  border: none;
+  width: 100%;
+  text-align: left;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  transition: background 0.3s ease;
+}
+
+.accordion-title:hover {
+  background-color: #003d73;
+}
+
+.accordion-content {
+  display: none;
+  padding: 16px 20px;
+  background-color: #f5f5f5;
+  color: #333;
+  font-size: 15px;
+  line-height: 1.5;
+}
+
+.accordion-item.active .accordion-content {
+  display: block;
+}
+
+.arrow {
+  transition: transform 0.3s ease;
+}
+
+.accordion-item.active .arrow {
+  transform: rotate(90deg);
+}
+</style>
+
+<div class="accordion-section">
+
+  <div class="accordion-item">
+    <button class="accordion-title">
+      Combined Pill (COC)
+      <span class="arrow">▶</span>
+    </button>
+    <div class="accordion-content">
+      <p><strong>How it works:</strong> Prevents ovulation using estrogen and progestogen.</p>
+      <p><strong>Benefits:</strong> Predictable periods, improves acne or PMS.</p>
+      <p><strong>Suitable for:</strong> Women without clot risk or migraines with aura.</p>
+      <p><strong>Considerations:</strong> Take daily, avoid if high clot risk or breastfeeding.</p>
+    </div>
+  </div>
+
+  <div class="accordion-item">
+    <button class="accordion-title">
+      Progestogen-Only Pill (POP)
+      <span class="arrow">▶</span>
+    </button>
+    <div class="accordion-content">
+      <p><strong>How it works:</strong> Thickens cervical mucus; some types stop ovulation.</p>
+      <p><strong>Benefits:</strong> Fewer side effects, safer for breastfeeding or migraines.</p>
+      <p><strong>Suitable for:</strong> Those avoiding estrogen or who smoke.</p>
+      <p><strong>Considerations:</strong> Must be taken at the same time daily.</p>
+    </div>
+  </div>
+
+  <div class="accordion-item">
+    <button class="accordion-title">
+      Contraceptive Patch
+      <span class="arrow">▶</span>
+    </button>
+    <div class="accordion-content">
+      <p><strong>How it works:</strong> Delivers hormones through the skin.</p>
+      <p><strong>Benefits:</strong> Only needs changing weekly, steady hormone levels.</p>
+      <p><strong>Suitable for:</strong> People who forget pills.</p>
+      <p><strong>Considerations:</strong> Visible on skin, may cause irritation.</p>
+    </div>
+  </div>
+
+  <div class="accordion-item">
+    <button class="accordion-title">
+      Injection
+      <span class="arrow">▶</span>
+    </button>
+    <div class="accordion-content">
+      <p><strong>How it works:</strong> Long-acting progestogen prevents ovulation.</p>
+      <p><strong>Benefits:</strong> Lasts 8–13 weeks, very reliable.</p>
+      <p><strong>Suitable for:</strong> People wanting low-maintenance contraception.</p>
+      <p><strong>Considerations:</strong> Delay in fertility return, possible weight gain.</p>
+    </div>
+  </div>
+
+  <div class="accordion-item">
+    <button class="accordion-title">
+      Implant
+      <span class="arrow">▶</span>
+    </button>
+    <div class="accordion-content">
+      <p><strong>How it works:</strong> Rod under the skin releases progestogen.</p>
+      <p><strong>Benefits:</strong> Works for 3 years, “fit and forget”.</p>
+      <p><strong>Suitable for:</strong> Most users who want long-term cover.</p>
+      <p><strong>Considerations:</strong> Needs to be inserted/removed by a clinician.</p>
+    </div>
+  </div>
+
+  <div class="accordion-item">
+    <button class="accordion-title">
+      Hormonal IUD
+      <span class="arrow">▶</span>
+    </button>
+    <div class="accordion-content">
+      <p><strong>How it works:</strong> Thickens mucus, suppresses lining and ovulation.</p>
+      <p><strong>Benefits:</strong> Lasts up to 5 years, light or no periods.</p>
+      <p><strong>Suitable for:</strong> Heavy periods or long-term use.</p>
+      <p><strong>Considerations:</strong> Irregular bleeding early on; needs fitting.</p>
+    </div>
+  </div>
+
+  <div class="accordion-item">
+    <button class="accordion-title">
+      Copper IUD
+      <span class="arrow">▶</span>
+    </button>
+    <div class="accordion-content">
+      <p><strong>How it works:</strong> Non-hormonal; affects sperm motility and survival.</p>
+      <p><strong>Benefits:</strong> Hormone-free, lasts 5–10 years.</p>
+      <p><strong>Suitable for:</strong> Anyone wanting natural cycle contraception.</p>
+      <p><strong>Considerations:</strong> Can increase bleeding/cramping at first.</p>
+    </div>
+  </div>
+
+  <div class="accordion-item">
+    <button class="accordion-title">
+      Emergency Pill
+      <span class="arrow">▶</span>
+    </button>
+    <div class="accordion-content">
+      <p><strong>How it works:</strong> Delays ovulation to prevent pregnancy.</p>
+      <p><strong>Benefits:</strong> Backup option after unprotected sex.</p>
+      <p><strong>Suitable for:</strong> Anyone needing urgent contraception.</p>
+      <p><strong>Considerations:</strong> Not for regular use; take within 3–5 days.</p>
+    </div>
+  </div>
+
+  <div class="accordion-item">
+    <button class="accordion-title">
+      Barrier Methods (Condoms etc.)
+      <span class="arrow">▶</span>
+    </button>
+    <div class="accordion-content">
+      <p><strong>How it works:</strong> Blocks sperm from reaching the egg.</p>
+      <p><strong>Benefits:</strong> Protects against STIs; hormone-free.</p>
+      <p><strong>Suitable for:</strong> Everyone; good for backup use.</p>
+      <p><strong>Considerations:</strong> Must use correctly every time.</p>
+    </div>
+  </div>
+
+</div>
+
+<script>
+document.querySelectorAll('.accordion-title').forEach(button => {
+  button.addEventListener('click', () => {
+    const item = button.parentElement;
+    item.classList.toggle('active');
+  });
+});
+</script>
