@@ -237,3 +237,16 @@ document.addEventListener('click', function () {
   setTimeout(sendHeight, 300); // Delay to wait for expand animation
 });
 </script>
+
+<script>
+function adjustFontSizeForMobile() {
+  if (window.innerWidth <= 500) {
+    document.querySelector('.accordion-section').style.fontSize = '12px';
+    document.querySelectorAll('.accordion-title').forEach(el => el.style.fontSize = '13px');
+    document.querySelectorAll('.accordion-content').forEach(el => el.style.fontSize = '12px');
+  }
+}
+
+// Run on load
+window.addEventListener('load', adjustFontSizeForMobile);
+</script>
