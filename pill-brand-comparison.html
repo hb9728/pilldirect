@@ -1,0 +1,145 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <title>Pill Brands</title>
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <style>
+    body {
+      font-family: 'Segoe UI', sans-serif;
+      padding: 20px;
+      background-color: #f9f9f9;
+    }
+
+    h2 {
+      color: #005eb8;
+      margin-top: 40px;
+    }
+
+    .brand-section {
+      max-width: 800px;
+      margin: auto;
+    }
+
+    .brand-card {
+      background-color: white;
+      border: 1px solid #d0d0d0;
+      border-left: 6px solid #005eb8;
+      border-radius: 6px;
+      margin-bottom: 12px;
+      overflow: hidden;
+      transition: all 0.3s ease;
+    }
+
+    .brand-header {
+      padding: 16px;
+      cursor: pointer;
+      font-weight: bold;
+      font-size: 16px;
+      background-color: #e6f0f8;
+      color: #005eb8;
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+    }
+
+    .brand-header:hover {
+      background-color: #d5e7f4;
+    }
+
+    .brand-content {
+      padding: 16px;
+      display: none;
+      font-size: 15px;
+      color: #333;
+      background: #fafafa;
+    }
+
+    .brand-card.active .brand-content {
+      display: block;
+    }
+
+    .arrow {
+      font-size: 16px;
+      transition: transform 0.3s ease;
+    }
+
+    .brand-card.active .arrow {
+      transform: rotate(90deg);
+    }
+  </style>
+</head>
+<body>
+
+<div class="brand-section">
+  <h2>Combined Pill (COC) Brands</h2>
+
+  <div class="brand-card">
+    <div class="brand-header" onclick="toggleCard(this)">
+      Rigevidon <span class="arrow">▶</span>
+    </div>
+    <div class="brand-content">
+      <p>Contains: Ethinylestradiol + Levonorgestrel</p>
+      <p>Often used as a first-line option on the NHS. 21-day pill with 7-day break. May cause spotting when starting. Well-studied and widely used.</p>
+    </div>
+  </div>
+
+  <div class="brand-card">
+    <div class="brand-header" onclick="toggleCard(this)">
+      Yasmin / Lucette <span class="arrow">▶</span>
+    </div>
+    <div class="brand-content">
+      <p>Contains: Ethinylestradiol + Drospirenone</p>
+      <p>May reduce bloating, acne, and mood swings. Slightly higher clot risk than older pills, but preferred by many for its side-effect profile.</p>
+    </div>
+  </div>
+
+  <div class="brand-card">
+    <div class="brand-header" onclick="toggleCard(this)">
+      Gedarel / Marvelon <span class="arrow">▶</span>
+    </div>
+    <div class="brand-content">
+      <p>Contains: Ethinylestradiol + Desogestrel</p>
+      <p>Third-generation combined pills. May be gentler on skin and mood. Often used when side effects are experienced with first-line options.</p>
+    </div>
+  </div>
+
+  <h2>Progestogen-Only Pill (POP) Brands</h2>
+
+  <div class="brand-card">
+    <div class="brand-header" onclick="toggleCard(this)">
+      Cerazette / Desogestrel 75mcg <span class="arrow">▶</span>
+    </div>
+    <div class="brand-content">
+      <p>12-hour window, suppresses ovulation in most users. Very popular NHS option. May lead to lighter or no periods.</p>
+    </div>
+  </div>
+
+  <div class="brand-card">
+    <div class="brand-header" onclick="toggleCard(this)">
+      Hana <span class="arrow">▶</span>
+    </div>
+    <div class="brand-content">
+      <p>Same active ingredient as Cerazette (Desogestrel 75mcg), but branded for over-the-counter use. Now available on NHS prescriptions. 12-hour window.</p>
+    </div>
+  </div>
+
+  <div class="brand-card">
+    <div class="brand-header" onclick="toggleCard(this)">
+      Norgeston / Noriday <span class="arrow">▶</span>
+    </div>
+    <div class="brand-content">
+      <p>Traditional POPs with a 3-hour window. Do not reliably stop ovulation. Better suited for those who can take pills at the same time each day.</p>
+    </div>
+  </div>
+</div>
+
+<script>
+  function toggleCard(header) {
+    const card = header.parentElement;
+    card.classList.toggle('active');
+  }
+</script>
+
+</body>
+</html>
