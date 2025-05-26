@@ -1,0 +1,121 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <title>COC vs POP Comparison</title>
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <style>
+    body {
+      font-family: 'Segoe UI', sans-serif;
+      margin: 0;
+      padding: 20px;
+      background-color: #f9f9f9;
+      font-size: 16px;
+    }
+
+    .tab-container {
+      max-width: 800px;
+      margin: auto;
+      background-color: #fff;
+      border: 1px solid #d0d0d0;
+      border-radius: 6px;
+      overflow: hidden;
+    }
+
+    .tab-buttons {
+      display: flex;
+    }
+
+    .tab-buttons button {
+      flex: 1;
+      padding: 14px;
+      border: none;
+      background-color: #e6f0f8;
+      font-weight: bold;
+      cursor: pointer;
+      font-size: 16px;
+      transition: background 0.3s ease;
+    }
+
+    .tab-buttons button.active {
+      background-color: #005eb8;
+      color: white;
+    }
+
+    .tab-content {
+      display: none;
+      padding: 20px;
+      background-color: #fff;
+      color: #333;
+    }
+
+    .tab-content.active {
+      display: block;
+    }
+
+    .comparison-row {
+      margin-bottom: 12px;
+    }
+
+    .comparison-row strong {
+      display: inline-block;
+      width: 170px;
+    }
+
+    @media (max-width: 600px) {
+      body {
+        font-size: 14px;
+      }
+
+      .comparison-row strong {
+        display: block;
+        margin-bottom: 4px;
+        width: auto;
+      }
+    }
+  </style>
+</head>
+<body>
+
+<div class="tab-container">
+  <div class="tab-buttons">
+    <button class="tab-btn active" onclick="showTab('coc')">Combined Pill (COC)</button>
+    <button class="tab-btn" onclick="showTab('pop')">Progestogen-Only Pill (POP)</button>
+  </div>
+
+  <div id="coc" class="tab-content active">
+    <div class="comparison-row"><strong>Hormones:</strong> Estrogen + Progestogen</div>
+    <div class="comparison-row"><strong>How it works:</strong> Prevents ovulation, thickens cervical mucus, thins uterine lining</div>
+    <div class="comparison-row"><strong>Effectiveness:</strong> >99% when used correctly</div>
+    <div class="comparison-row"><strong>Bleeding pattern:</strong> Regular withdrawal bleeds or can skip periods</div>
+    <div class="comparison-row"><strong>Benefits:</strong> May help acne, reduce heavy/painful periods, regulate cycle</div>
+    <div class="comparison-row"><strong>Not suitable for:</strong> People with migraines with aura, clot risk, or breastfeeding</div>
+    <div class="comparison-row"><strong>Time-sensitive?</strong> Take daily; some flexibility with timing</div>
+  </div>
+
+  <div id="pop" class="tab-content">
+    <div class="comparison-row"><strong>Hormones:</strong> Progestogen only</div>
+    <div class="comparison-row"><strong>How it works:</strong> Thickens cervical mucus, some types also suppress ovulation</div>
+    <div class="comparison-row"><strong>Effectiveness:</strong> >99% when used correctly</div>
+    <div class="comparison-row"><strong>Bleeding pattern:</strong> Irregular; may stop altogether over time</div>
+    <div class="comparison-row"><strong>Benefits:</strong> Safe in breastfeeding, migraine-safe, lower clot risk</div>
+    <div class="comparison-row"><strong>Suitable for:</strong> Smokers over 35, people avoiding estrogen</div>
+    <div class="comparison-row"><strong>Time-sensitive?</strong> Yes — must be taken at the same time daily</div>
+  </div>
+</div>
+
+<script>
+  function showTab(id) {
+    const tabs = document.querySelectorAll('.tab-content');
+    const buttons = document.querySelectorAll('.tab-btn');
+
+    tabs.forEach(tab => tab.classList.remove('active'));
+    buttons.forEach(btn => btn.classList.remove('active'));
+
+    document.getElementById(id).classList.add('active');
+    event.target.classList.add('active');
+  }
+</script>
+
+</body>
+</html>
