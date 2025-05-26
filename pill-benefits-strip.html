@@ -88,5 +88,16 @@
     </div>
   </div>
 
+<script>
+  function sendHeight() {
+    const height = document.documentElement.scrollHeight;
+    parent.postMessage({ type: 'resize-iframe', height: height }, '*');
+  }
+
+  window.addEventListener('load', sendHeight);
+  window.addEventListener('resize', sendHeight);
+  document.addEventListener('click', () => setTimeout(sendHeight, 300));
+</script>
+  
 </body>
 </html>
