@@ -10,17 +10,18 @@
       padding: 0;
       background-color: white;
       font-family: Arial, sans-serif;
-      max-height: 100vh;
       overflow: hidden;
+      height: 100%;
+      max-height: 100vh;
     }
 
     .benefit-strip {
       display: flex;
       flex-wrap: wrap;
       justify-content: space-between;
-      background-color: white;
+      background-color: #e6f0f8;
       border-radius: 8px;
-      padding: 24px;
+      padding: 20px;
       max-width: 100%;
       box-sizing: border-box;
     }
@@ -28,7 +29,7 @@
     .benefit-item {
       flex: 1 1 260px;
       width: 100%;
-      padding: 16px;
+      padding: 14px;
       margin: 8px;
       background-color: white;
       border-left: 6px solid #005eb8;
@@ -38,19 +39,20 @@
     }
 
     .benefit-item h3 {
-      font-size: 18px;
+      font-size: 17px;
       margin: 0 0 8px 0;
       color: #005eb8;
     }
 
     .benefit-item p {
-      font-size: 15px;
+      font-size: 14px;
       margin: 0;
       color: #333;
     }
 
     @media (max-width: 500px) {
       .benefit-strip {
+        flex-direction: column;
         padding: 12px;
       }
 
