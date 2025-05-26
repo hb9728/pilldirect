@@ -1,4 +1,3 @@
-<style>
 .benefit-strip {
   display: flex;
   flex-wrap: wrap;
@@ -20,6 +19,8 @@
   border-left: 6px solid #005eb8;
   border-radius: 6px;
   box-shadow: 0 1px 2px rgba(0,0,0,0.05);
+  display: flex;
+  flex-direction: column;
 }
 
 .benefit-item h3 {
@@ -41,10 +42,12 @@
   }
 
   .benefit-item {
+    flex: none;
+    width: 100%;
     margin: 10px 0;
   }
 }
-</style>
+
 
 <div class="benefit-strip">
   <div class="benefit-item">
