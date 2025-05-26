@@ -1,67 +1,90 @@
-<style>
-.benefit-strip {
-  display: flex;
-  flex-wrap: wrap;
-  justify-content: space-between;
-  background-color: #e6f0f8;
-  border-radius: 8px;
-  padding: 24px;
-  font-family: 'Segoe UI', sans-serif;
-  margin: 20px auto;
-  max-width: 900px;
-  box-shadow: 0 2px 4px rgba(0,0,0,0.05);
-}
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>PillDirect Benefits</title>
+  <style>
+    body {
+      font-family: 'Segoe UI', sans-serif;
+      margin: 0;
+      padding: 0;
+      background-color: #f4f8fb;
+    }
 
-.benefit-item {
-  flex: 1 1 250px;
-  padding: 16px;
-  margin: 8px;
-  background-color: white;
-  border-left: 6px solid #005eb8;
-  border-radius: 6px;
-  box-shadow: 0 1px 2px rgba(0,0,0,0.05);
-  display: flex;
-  flex-direction: column;
-}
+    .benefit-strip {
+      display: flex;
+      flex-wrap: wrap;
+      justify-content: space-between;
+      background-color: #e6f0f8;
+      border-radius: 8px;
+      padding: 24px;
+      max-width: 100%;
+      box-sizing: border-box;
+    }
 
-.benefit-item h3 {
-  font-size: 18px;
-  margin: 0 0 8px 0;
-  color: #005eb8;
-}
+    .benefit-item {
+      flex: 1 1 260px;
+      width: 100%;
+      padding: 16px;
+      margin: 8px;
+      background-color: white;
+      border-left: 6px solid #005eb8;
+      border-radius: 6px;
+      box-shadow: 0 1px 2px rgba(0,0,0,0.05);
+      box-sizing: border-box;
+    }
 
-.benefit-item p {
-  font-size: 15px;
-  margin: 0;
-  color: #333;
-}
+    .benefit-item h3 {
+      font-size: 18px;
+      margin: 0 0 8px 0;
+      color: #005eb8;
+    }
 
-@media (max-width: 600px) {
-  .benefit-strip {
-    flex-direction: column;
-    padding: 16px;
-  }
+    .benefit-item p {
+      font-size: 15px;
+      margin: 0;
+      color: #333;
+    }
 
-  .benefit-item {
-    flex: none;
-    width: 100%;
-    margin: 10px 0;
-  }
-}
-</style>
+    @media (max-width: 600px) {
+      .benefit-strip {
+        flex-direction: column;
+        padding: 16px;
+      }
 
+      .benefit-item {
+        flex: none;
+        width: 100%;
+        margin: 10px 0;
+      }
 
-<div class="benefit-strip">
-  <div class="benefit-item">
-    <h3>💊 NHS-funded pill service</h3>
-    <p>Get the combined or mini pill delivered to your door — completely free.</p>
+      .benefit-item h3 {
+        font-size: 16px;
+      }
+
+      .benefit-item p {
+        font-size: 14px;
+      }
+    }
+  </style>
+</head>
+<body>
+
+  <div class="benefit-strip">
+    <div class="benefit-item">
+      <h3>💊 NHS-funded pill service</h3>
+      <p>Get the combined or mini pill delivered to your door — completely free.</p>
+    </div>
+    <div class="benefit-item">
+      <h3>📦 Discreet delivery</h3>
+      <p>No appointments, no waiting rooms. Everything arrives in plain packaging.</p>
+    </div>
+    <div class="benefit-item">
+      <h3>🧠 Learn before you choose</h3>
+      <p>Compare pill types, understand how they work, and find your best fit.</p>
+    </div>
   </div>
-  <div class="benefit-item">
-    <h3>📦 Discreet delivery</h3>
-    <p>No appointments, no waiting rooms. Everything arrives in plain packaging.</p>
-  </div>
-  <div class="benefit-item">
-    <h3>🧠 Learn before you choose</h3>
-    <p>Compare pill types, understand how they work, and find your best fit.</p>
-  </div>
-</div>
+
+</body>
+</html>
