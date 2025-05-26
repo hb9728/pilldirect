@@ -3,11 +3,9 @@
 <head>
   <meta charset="UTF-8" />
   <title>Which Pill Might Be Best?</title>
-  <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
   <style>
-    * {
-      box-sizing: border-box;
-    }
+    * { box-sizing: border-box; }
 
     html, body {
       margin: 0;
@@ -15,8 +13,7 @@
       font-family: Arial, sans-serif;
       background: white;
       color: #003087;
-      overflow-y: auto;
-      height: 100%;
+      overflow-x: hidden;
     }
 
     .quiz-container {
@@ -25,23 +22,12 @@
       background: #e6f0f8;
     }
 
-    form {
-      margin: 0;
-      padding: 0;
-    }
+    form { margin: 0; padding: 0; }
 
-    h2 {
-      font-size: 18px;
-      margin-bottom: 16px;
-    }
+    h2 { font-size: 18px; margin-bottom: 16px; }
 
-    .question {
-      display: none;
-    }
-
-    .question.active {
-      display: block;
-    }
+    .question { display: none; }
+    .question.active { display: block; }
 
     label {
       display: block;
@@ -49,9 +35,7 @@
       font-size: 15px;
     }
 
-    input[type="radio"] {
-      margin-right: 6px;
-    }
+    input[type="radio"] { margin-right: 6px; }
 
     button {
       background-color: #005eb8;
@@ -76,35 +60,18 @@
       border-left: 6px solid #005eb8;
       margin-top: 20px;
       font-size: 15px;
-      margin-bottom: 0;
     }
 
     @media (max-width: 500px) {
-      .quiz-container {
-        padding: 12px;
-      }
-
-      h2 {
-        font-size: 16px;
-      }
-
-      label {
-        font-size: 14px;
-      }
-
-      button {
-        font-size: 14px;
-        padding: 8px 12px;
-      }
-
-      .result {
-        font-size: 14px;
-      }
+      .quiz-container { padding: 12px; }
+      h2 { font-size: 16px; }
+      label { font-size: 14px; }
+      button { font-size: 14px; padding: 8px 12px; }
+      .result { font-size: 14px; }
     }
   </style>
 </head>
 <body>
-
   <div class="quiz-container">
     <h2>Which contraceptive pill might suit you best?</h2>
 
@@ -114,25 +81,21 @@
         <label><input type="radio" name="q1" value="yes" required> Yes</label>
         <label><input type="radio" name="q1" value="no"> No</label>
       </div>
-
       <div class="question" id="q2">
         <label>Do you experience migraines with aura?</label>
         <label><input type="radio" name="q2" value="yes" required> Yes</label>
         <label><input type="radio" name="q2" value="no"> No</label>
       </div>
-
       <div class="question" id="q3">
         <label>Do you smoke and are over 35?</label>
         <label><input type="radio" name="q3" value="yes" required> Yes</label>
         <label><input type="radio" name="q3" value="no"> No</label>
       </div>
-
       <div class="question" id="q4">
         <label>Are you okay with taking a pill at the same time every day?</label>
         <label><input type="radio" name="q4" value="yes" required> Yes</label>
         <label><input type="radio" name="q4" value="no"> No</label>
       </div>
-
       <div class="question" id="q5">
         <label>Would you like to control or skip your period?</label>
         <label><input type="radio" name="q5" value="yes" required> Yes</label>
@@ -161,6 +124,8 @@
       document.getElementById("backBtn").disabled = index === 0;
       document.getElementById("nextBtn").style.display = index === questions.length - 1 ? "none" : "inline-block";
       document.getElementById("submitBtn").style.display = index === questions.length - 1 ? "inline-block" : "none";
+
+      sendHeight();
     }
 
     function nextQuestion() {
@@ -207,7 +172,18 @@
       const result = document.getElementById("result");
       result.innerHTML = recommendation + "<br><br><em>This quiz is informational only. Please speak with a healthcare professional before making a final decision.</em>";
       result.style.display = "block";
+
+      sendHeight();
     });
+
+    function sendHeight() {
+      const height = document.documentElement.scrollHeight;
+      parent.postMessage({ type: 'resize-iframe', height }, '*');
+    }
+
+    window.addEventListener('load', sendHeight);
+    window.addEventListener('resize', sendHeight);
+    document.addEventListener('click', () => setTimeout(sendHeight, 300));
 
     showQuestion(current);
   </script>
