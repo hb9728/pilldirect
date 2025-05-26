@@ -2,13 +2,11 @@
 <html lang="en">
 <head>
   <meta charset="UTF-8" />
-  <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no" />
   <title>Which Pill Might Be Best?</title>
+  <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no" />
   <style>
     * {
       box-sizing: border-box;
-      margin-bottom: 0 !important;
-      padding-bottom: 0 !important;
     }
 
     html, body {
@@ -27,6 +25,11 @@
       padding: 16px;
       background: #e6f0f8;
       overflow: hidden;
+    }
+
+    form {
+      margin: 0;
+      padding: 0;
     }
 
     h2 {
@@ -52,11 +55,6 @@
       margin-right: 6px;
     }
 
-    form {
-      margin: 0;
-      padding: 0;
-    }
-
     button {
       background-color: #005eb8;
       color: white;
@@ -70,4 +68,150 @@
 
     button:disabled {
       background-color: #a8c5e0;
-      cursor: default
+      cursor: default;
+    }
+
+    .result {
+      background-color: white;
+      padding: 16px;
+      border-radius: 6px;
+      border-left: 6px solid #005eb8;
+      margin-top: 20px;
+      font-size: 15px;
+      margin-bottom: 0;
+    }
+
+    @media (max-width: 500px) {
+      .quiz-container {
+        padding: 12px;
+      }
+
+      h2 {
+        font-size: 16px;
+      }
+
+      label {
+        font-size: 14px;
+      }
+
+      button {
+        font-size: 14px;
+        padding: 8px 12px;
+      }
+
+      .result {
+        font-size: 14px;
+      }
+    }
+  </style>
+</head>
+<body>
+
+  <div class="quiz-container">
+    <h2>Which contraceptive pill might suit you best?</h2>
+
+    <form id="quizForm">
+      <div class="question active" id="q1">
+        <label>Are you currently breastfeeding?</label>
+        <label><input type="radio" name="q1" value="yes" required> Yes</label>
+        <label><input type="radio" name="q1" value="no"> No</label>
+      </div>
+
+      <div class="question" id="q2">
+        <label>Do you experience migraines with aura?</label>
+        <label><input type="radio" name="q2" value="yes" required> Yes</label>
+        <label><input type="radio" name="q2" value="no"> No</label>
+      </div>
+
+      <div class="question" id="q3">
+        <label>Do you smoke and are over 35?</label>
+        <label><input type="radio" name="q3" value="yes" required> Yes</label>
+        <label><input type="radio" name="q3" value="no"> No</label>
+      </div>
+
+      <div class="question" id="q4">
+        <label>Are you okay with taking a pill at the same time every day?</label>
+        <label><input type="radio" name="q4" value="yes" required> Yes</label>
+        <label><input type="radio" name="q4" value="no"> No</label>
+      </div>
+
+      <div class="question" id="q5">
+        <label>Would you like to control or skip your period?</label>
+        <label><input type="radio" name="q5" value="yes" required> Yes</label>
+        <label><input type="radio" name="q5" value="no"> No</label>
+      </div>
+
+      <div style="margin-top: 20px;">
+        <button type="button" id="backBtn" onclick="prevQuestion()" disabled>Back</button>
+        <button type="button" id="nextBtn" onclick="nextQuestion()">Next</button>
+        <button type="submit" id="submitBtn" style="display: none;">Submit</button>
+      </div>
+    </form>
+
+    <div id="result" class="result" style="display: none;"></div>
+  </div>
+
+  <script>
+    const questions = document.querySelectorAll(".question");
+    let current = 0;
+
+    function showQuestion(index) {
+      questions.forEach((q, i) => {
+        q.classList.toggle("active", i === index);
+      });
+
+      document.getElementById("backBtn").disabled = index === 0;
+      document.getElementById("nextBtn").style.display = index === questions.length - 1 ? "none" : "inline-block";
+      document.getElementById("submitBtn").style.display = index === questions.length - 1 ? "inline-block" : "none";
+    }
+
+    function nextQuestion() {
+      const currentInputs = questions[current].querySelectorAll("input");
+      const answered = Array.from(currentInputs).some(input => input.checked);
+      if (!answered) return alert("Please select an answer to continue.");
+      current++;
+      showQuestion(current);
+    }
+
+    function prevQuestion() {
+      current--;
+      showQuestion(current);
+    }
+
+    document.getElementById("quizForm").addEventListener("submit", function(e) {
+      e.preventDefault();
+
+      const answers = {};
+      new FormData(this).forEach((value, key) => {
+        answers[key] = value;
+      });
+
+      let scorePOP = 0;
+      let scoreCOC = 0;
+
+      if (answers.q1 === "yes") scorePOP++;
+      if (answers.q2 === "yes") scorePOP++;
+      if (answers.q3 === "yes") scorePOP++;
+      if (answers.q4 === "no") scoreCOC++;
+      if (answers.q5 === "yes") scoreCOC++;
+
+      let recommendation = "";
+
+      if (scorePOP >= 3) {
+        recommendation = "Based on your answers, the <strong>Progestogen-Only Pill (POP)</strong> may be more suitable for you.";
+      } else if (scoreCOC >= 2) {
+        recommendation = "Based on your answers, the <strong>Combined Pill (COC)</strong> may be more suitable for you.";
+      } else {
+        recommendation = "Both the <strong>POP</strong> and <strong>COC</strong> may be suitable — speak to a pharmacist to help decide.";
+      }
+
+      document.getElementById("quizForm").style.display = "none";
+      const result = document.getElementById("result");
+      result.innerHTML = recommendation + "<br><br><em>This quiz is informational only. Please speak with a healthcare professional before making a final decision.</em>";
+      result.style.display = "block";
+    });
+
+    showQuestion(current);
+  </script>
+</body>
+</html>
