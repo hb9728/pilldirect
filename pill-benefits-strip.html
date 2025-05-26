@@ -1,0 +1,62 @@
+<style>
+.benefit-strip {
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: space-between;
+  background-color: #e6f0f8;
+  border-radius: 8px;
+  padding: 24px;
+  font-family: 'Segoe UI', sans-serif;
+  margin: 20px auto;
+  max-width: 900px;
+  box-shadow: 0 2px 4px rgba(0,0,0,0.05);
+}
+
+.benefit-item {
+  flex: 1 1 250px;
+  padding: 16px;
+  margin: 8px;
+  background-color: white;
+  border-left: 6px solid #005eb8;
+  border-radius: 6px;
+  box-shadow: 0 1px 2px rgba(0,0,0,0.05);
+}
+
+.benefit-item h3 {
+  font-size: 18px;
+  margin: 0 0 8px 0;
+  color: #005eb8;
+}
+
+.benefit-item p {
+  font-size: 15px;
+  margin: 0;
+  color: #333;
+}
+
+@media (max-width: 600px) {
+  .benefit-strip {
+    flex-direction: column;
+    padding: 16px;
+  }
+
+  .benefit-item {
+    margin: 10px 0;
+  }
+}
+</style>
+
+<div class="benefit-strip">
+  <div class="benefit-item">
+    <h3>💊 NHS-funded pill service</h3>
+    <p>Get the combined or mini pill delivered to your door — completely free.</p>
+  </div>
+  <div class="benefit-item">
+    <h3>📦 Discreet delivery</h3>
+    <p>No appointments, no waiting rooms. Everything arrives in plain packaging.</p>
+  </div>
+  <div class="benefit-item">
+    <h3>🧠 Learn before you choose</h3>
+    <p>Compare pill types, understand how they work, and find your best fit.</p>
+  </div>
+</div>
